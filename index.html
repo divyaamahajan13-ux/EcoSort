@@ -1,0 +1,1318 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Waste Segregation Management and Awareness Project">
+<title>EcoSort | Smart Waste Management</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --green: #16845b;
+    --dark: #103d2b;
+    --light: #f1f8f2;
+    --white: #ffffff;
+    --text: #53665b;
+    --mint: #dff5e6;
+    --orange: #f2a65a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
+    padding: 15px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 15px #103d2b12;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--green);
+}
+
+.logo span {
+    color: var(--dark);
+}
+
+nav {
+    display: flex;
+    gap: 19px;
+    align-items: center;
+}
+
+nav a {
+    font-size: 12px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--green);
+}
+
+.menu {
+    display: none;
+    border: none;
+    background: var(--mint);
+    padding: 8px 13px;
+    border-radius: 8px;
+}
+
+.hero {
+    min-height: 580px;
+    padding: 75px 8%;
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    align-items: center;
+    gap: 35px;
+    background: linear-gradient(135deg, #eaf9ed, #d3f0dc);
+    overflow: hidden;
+}
+
+.tag {
+    color: var(--green);
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 5vw, 65px);
+    line-height: 1.18;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--green);
+}
+
+.hero p {
+    color: var(--text);
+    font-size: 14px;
+    max-width: 570px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin: 25px 0;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    border-radius: 8px;
+    background: var(--green);
+    color: white;
+    padding: 13px 22px;
+    font-weight: 600;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: var(--dark);
+    transform: translateY(-3px);
+}
+
+.btn-light {
+    background: white;
+    color: var(--dark);
+    border: 1px solid var(--green);
+}
+
+.hero-art {
+    min-height: 320px;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.planet {
+    width: 290px;
+    height: 290px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient(140deg, #b5e9bf, #63bc83);
+    box-shadow: 0 25px 55px #145c3025;
+    font-size: 150px;
+    animation: float 4s ease-in-out infinite;
+}
+
+.float-label {
+    position: absolute;
+    padding: 12px 16px;
+    background: white;
+    box-shadow: 0 8px 25px #123c2015;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.label-a { top: 15px; left: 0; }
+.label-b { bottom: 20px; right: 0; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-13px); }
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    padding: 30px 7%;
+    background: white;
+}
+
+.stat {
+    text-align: center;
+    padding: 17px;
+}
+
+.stat span {
+    font-size: 32px;
+}
+
+.stat h3 {
+    margin: 8px 0 4px;
+}
+
+.stat p {
+    font-size: 12px;
+    color: var(--text);
+}
+
+.section {
+    padding: 80px 8%;
+}
+
+.heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 42px;
+}
+
+.heading h2 {
+    font-size: clamp(27px, 4vw, 39px);
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.heading p:last-child {
+    font-size: 13px;
+    color: var(--text);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.about-art {
+    min-height: 320px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #c5efd0, #e5f8e9);
+    display: grid;
+    place-items: center;
+    font-size: 135px;
+}
+
+.about-copy h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.about-copy p {
+    font-size: 13px;
+    color: var(--text);
+    margin-bottom: 15px;
+}
+
+.checks {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.checks li {
+    margin: 10px 0;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.categories {
+    background: #e8f5eb;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    padding: 25px 20px;
+    background: white;
+    border: 1px solid #e0ece2;
+    border-radius: 16px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px #103d2b13;
+}
+
+.card .emoji {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.card small {
+    font-size: 10px;
+    color: var(--green);
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.card h3 {
+    font-size: 17px;
+    line-height: 1.4;
+    margin: 10px 0;
+}
+
+.card p {
+    font-size: 12px;
+    color: var(--text);
+}
+
+.pill {
+    margin-top: 15px;
+    background: var(--mint);
+    color: var(--dark);
+    border-radius: 7px;
+    padding: 8px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.note {
+    font-size: 11px;
+    color: var(--text);
+    margin-top: 20px;
+}
+
+.guide-layout {
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    gap: 28px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-btn {
+    text-align: left;
+    padding: 14px;
+    background: white;
+    border: 1px solid #dcebe0;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.item-btn:hover, .item-btn.active {
+    background: var(--mint);
+    border-color: var(--green);
+}
+
+.guide-info {
+    background: white;
+    border-radius: 18px;
+    padding: 32px;
+    border: 1px solid #dcebe0;
+    box-shadow: 0 10px 25px #103d2b0b;
+}
+
+.guide-emoji {
+    font-size: 55px;
+}
+
+.guide-info h3 {
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+.guide-info p {
+    color: var(--text);
+    font-size: 13px;
+}
+
+.tip-box {
+    padding: 17px;
+    background: var(--mint);
+    border-left: 4px solid var(--green);
+    border-radius: 8px;
+    margin-top: 22px;
+}
+
+.tip-box strong {
+    font-size: 13px;
+}
+
+.tip-box p {
+    margin-top: 6px;
+}
+
+.awareness {
+    background: white;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.tip-card {
+    padding: 25px;
+    border: 1px solid #e0ece2;
+    border-radius: 15px;
+    transition: .3s;
+}
+
+.tip-card:hover {
+    background: var(--light);
+    transform: translateY(-4px);
+}
+
+.tip-card span {
+    font-size: 35px;
+}
+
+.tip-card h3 {
+    font-size: 16px;
+    margin: 12px 0 7px;
+}
+
+.tip-card p {
+    font-size: 12px;
+    color: var(--text);
+}
+
+.three-r {
+    background: linear-gradient(135deg, #103d2b, #16845b);
+    color: white;
+}
+
+.three-r .heading h2 {
+    color: white;
+}
+
+.three-r .tag {
+    color: #b5edc7;
+}
+
+.three-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.three-card {
+    border: 1px solid #ffffff35;
+    padding: 28px;
+    border-radius: 15px;
+    background: #ffffff0b;
+}
+
+.three-card .number {
+    background: white;
+    color: var(--green);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+}
+
+.three-card h3 {
+    margin: 15px 0 8px;
+}
+
+.three-card p {
+    color: #e0f2e5;
+    font-size: 12px;
+}
+
+.calculator-box, .quiz-box, .contact-form {
+    max-width: 720px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 17px;
+    border: 1px solid #dcebe0;
+    box-shadow: 0 10px 30px #103d2b0d;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 18px;
+}
+
+.field label {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.field input, .field textarea, .field select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d6e6da;
+    background: #fbfefc;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 22px;
+    background: var(--mint);
+    text-align: center;
+    border-radius: 12px;
+}
+
+.result p {
+    font-size: 12px;
+    color: var(--text);
+}
+
+.result h3 {
+    font-size: 36px;
+    color: var(--green);
+    margin: 8px;
+}
+
+.quiz {
+    background: #eaf6ed;
+}
+
+.quiz-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.progress {
+    height: 7px;
+    background: #e0ebe2;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 15px 0 25px;
+}
+
+#progressBar {
+    height: 100%;
+    width: 0;
+    background: var(--green);
+    transition: .3s;
+}
+
+#question {
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+.answers {
+    display: grid;
+    gap: 10px;
+}
+
+.answer-btn {
+    padding: 12px;
+    background: white;
+    border: 1px solid #dcebe0;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 13px;
+}
+
+.answer-btn:hover:not(:disabled) {
+    background: var(--mint);
+}
+
+.answer-btn.correct {
+    background: #d7f4df;
+    border-color: #16845b;
+}
+
+.answer-btn.wrong {
+    background: #fff0e9;
+    border-color: #db7856;
+}
+
+#feedback {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 15px 0;
+    min-height: 22px;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+#formMessage {
+    margin-top: 15px;
+    font-size: 13px;
+    color: var(--green);
+}
+
+footer {
+    background: #102e23;
+    color: #e1eee5;
+    text-align: center;
+    padding: 40px 7% 20px;
+}
+
+footer h2 {
+    color: white;
+}
+
+footer p {
+    font-size: 12px;
+    margin: 12px 0;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 22px 0;
+    font-size: 12px;
+}
+
+#topButton {
+    display: none;
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    border: none;
+    border-radius: 50%;
+    background: var(--green);
+    color: white;
+    width: 45px;
+    height: 45px;
+    font-size: 23px;
+    box-shadow: 0 5px 15px #103d2b30;
+}
+
+#topButton.show {
+    display: block;
+}
+
+@media(max-width: 1050px) {
+    header { padding: 15px 4%; }
+    nav { gap: 10px; }
+    nav a { font-size: 10px; }
+    .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media(max-width: 780px) {
+    .menu { display: block; }
+    header { flex-wrap: wrap; }
+    nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        align-items: stretch;
+        padding: 12px 0;
+    }
+    nav.open { display: flex; }
+    nav a { font-size: 13px; padding: 7px; }
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 55px 6%;
+    }
+    .hero p { margin: auto; }
+    .buttons { justify-content: center; }
+    .hero-art { min-height: 280px; }
+    .planet { width: 230px; height: 230px; font-size: 120px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .about-grid, .guide-layout { grid-template-columns: 1fr; }
+    .about-art { min-height: 240px; }
+    .tips-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media(max-width: 500px) {
+    .section { padding: 55px 6%; }
+    .hero h1 { font-size: 39px; }
+    .grid, .tips-grid, .three-grid { grid-template-columns: 1fr; }
+    .calculator-box, .quiz-box, .contact-form, .guide-info {
+        padding: 21px;
+    }
+    .hero-buttons .btn { width: 100%; }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="#home" class="logo">♻ Eco<span>Sort</span></a>
+    <button class="menu" id="menuButton" aria-label="Toggle navigation">☰</button>
+
+    <nav id="navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#categories">Waste Types</a>
+        <a href="#guide">Guide</a>
+        <a href="#awareness">Awareness</a>
+        <a href="#calculator">Calculator</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+    <div>
+        <p class="tag">A CLEANER PLANET STARTS WITH YOU</p>
+        <h1>Sort Your Waste.<br><span>Save Our Planet.</span></h1>
+        <p>
+            Welcome to EcoSort, a Waste Segregation Management and Awareness
+            project. Learn how to separate waste, encourage recycling and
+            build a cleaner, greener and healthier environment.
+        </p>
+
+        <div class="buttons">
+            <a href="#guide" class="btn">Explore Waste Guide →</a>
+            <a href="#quiz" class="btn btn-light">Take the Quiz</a>
+        </div>
+        <p>🌱 Reduce • Reuse • Recycle • Recover</p>
+    </div>
+
+    <div class="hero-art">
+        <div class="planet">🌍</div>
+        <div class="float-label label-a">♻ Recycle More</div>
+        <div class="float-label label-b">🌿 Keep It Green</div>
+    </div>
+</section>
+
+<section class="stats">
+    <div class="stat"><span>♻️</span><h3>Reduce</h3><p>Prevent unnecessary waste.</p></div>
+    <div class="stat"><span>🔄</span><h3>Reuse</h3><p>Give items a second life.</p></div>
+    <div class="stat"><span>🌱</span><h3>Recycle</h3><p>Recover useful materials.</p></div>
+    <div class="stat"><span>🌎</span><h3>Restore</h3><p>Protect our environment.</p></div>
+</section>
+
+<section class="section" id="about">
+    <div class="heading">
+        <p class="tag">ABOUT THE PROJECT</p>
+        <h2>What Is Waste Segregation?</h2>
+        <p>Understand waste before deciding how to dispose of it.</p>
+    </div>
+
+    <div class="about-grid">
+        <div class="about-art">🌳</div>
+        <div class="about-copy">
+            <h3>Small Actions, Big Impact</h3>
+            <p>
+                Waste segregation is the process of separating waste according
+                to its type and disposal requirements. It helps make recycling
+                easier and supports composting and safe waste treatment.
+            </p>
+            <p>
+                Mixing food scraps, paper, plastic, batteries and chemicals
+                makes waste recovery difficult. Separating materials at the
+                source helps households, schools and communities manage waste
+                responsibly.
+            </p>
+            <ul class="checks">
+                <li>✓ Improves recycling and material recovery</li>
+                <li>✓ Reduces waste sent to landfills</li>
+                <li>✓ Helps prevent soil and water pollution</li>
+                <li>✓ Encourages responsible public habits</li>
+                <li>✓ Supports a cleaner and healthier community</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section categories" id="categories">
+    <div class="heading">
+        <p class="tag">KNOW YOUR WASTE</p>
+        <h2>Types of Waste</h2>
+        <p>Different waste materials need different handling methods.</p>
+    </div>
+
+    <div class="grid">
+        <article class="card">
+            <div class="emoji">🍌</div>
+            <small>CATEGORY 01</small>
+            <h3>Wet / Organic Waste</h3>
+            <p>Fruit peels, vegetable scraps, tea leaves and suitable food leftovers.</p>
+            <div class="pill">Organic collection / composting</div>
+        </article>
+
+        <article class="card">
+            <div class="emoji">📦</div>
+            <small>CATEGORY 02</small>
+            <h3>Dry / Recyclable Waste</h3>
+            <p>Clean paper, cardboard, metal cans, glass and locally accepted plastics.</p>
+            <div class="pill">Dry recycling stream</div>
+        </article>
+
+        <article class="card">
+            <div class="emoji">🔋</div>
+            <small>CATEGORY 03</small>
+            <h3>E-Waste</h3>
+            <p>Old phones, computers, chargers, cables and electrical devices.</p>
+            <div class="pill">Authorized e-waste collection</div>
+        </article>
+
+        <article class="card">
+            <div class="emoji">⚠️</div>
+            <small>CATEGORY 04</small>
+            <h3>Hazardous Waste</h3>
+            <p>Certain batteries, chemicals, paints and other potentially dangerous materials.</p>
+            <div class="pill">Special safe disposal</div>
+        </article>
+    </div>
+
+    <p class="note">
+        Note: Bin colours and accepted materials vary by municipality.
+        Follow local collection rules and never mix hazardous waste with
+        ordinary household waste.
+    </p>
+</section>
+
+<section class="section" id="guide">
+    <div class="heading">
+        <p class="tag">LEARN BY EXAMPLE</p>
+        <h2>Where Does Your Waste Go?</h2>
+        <p>Select an item to view its recommended disposal method.</p>
+    </div>
+
+    <div class="guide-layout">
+        <div class="item-list" id="itemList">
+            <button class="item-btn active" data-item="banana">🍌 Banana Peel</button>
+            <button class="item-btn" data-item="paper">📄 Paper</button>
+            <button class="item-btn" data-item="plastic">🧴 Plastic Bottle</button>
+            <button class="item-btn" data-item="battery">🔋 Battery</button>
+            <button class="item-btn" data-item="phone">📱 Old Mobile Phone</button>
+            <button class="item-btn" data-item="glass">🍾 Glass Bottle</button>
+            <button class="item-btn" data-item="medicine">💊 Expired Medicine</button>
+            <button class="item-btn" data-item="food">🍚 Leftover Food</button>
+        </div>
+
+        <div class="guide-info" aria-live="polite">
+            <div class="guide-emoji" id="guideEmoji">🍌</div>
+            <p class="tag">DISPOSAL GUIDE</p>
+            <h3 id="guideTitle">Banana Peel</h3>
+            <p id="guideDescription">
+                Place suitable organic waste in the designated organic waste
+                container or compost it using an appropriate method.
+            </p>
+            <div class="tip-box">
+                <strong>💡 Remember</strong>
+                <p id="guideTip">Keep organic waste separate from dry recyclables.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section awareness" id="awareness">
+    <div class="heading">
+        <p class="tag">BE THE CHANGE</p>
+        <h2>Waste Awareness Tips</h2>
+        <p>Small everyday habits can make a meaningful difference.</p>
+    </div>
+
+    <div class="tips-grid">
+        <article class="tip-card"><span>🛍️</span><h3>Use Reusable Bags</h3><p>Carry reusable bags and avoid unnecessary single-use packaging.</p></article>
+        <article class="tip-card"><span>🧴</span><h3>Reuse Products</h3><p>Refill, repair and reuse suitable products whenever possible.</p></article>
+        <article class="tip-card"><span>🥬</span><h3>Compost Organics</h3><p>Compost suitable food and garden waste using a safe method.</p></article>
+        <article class="tip-card"><span>🔌</span><h3>Recycle E-Waste</h3><p>Take old electronics and batteries to authorized collection centres.</p></article>
+        <article class="tip-card"><span>🏫</span><h3>Spread Awareness</h3><p>Teach family members and classmates to separate waste correctly.</p></article>
+        <article class="tip-card"><span>🚯</span><h3>Never Litter</h3><p>Use suitable waste collection points instead of littering outdoors.</p></article>
+    </div>
+</section>
+
+<section class="section three-r" id="threeR">
+    <div class="heading">
+        <p class="tag">THE GOLDEN RULE</p>
+        <h2>Follow the 3R Principle</h2>
+    </div>
+
+    <div class="three-grid">
+        <div class="three-card"><div class="number">1</div><h3>REDUCE</h3><p>Prevent waste at its source. Buy only what you need and avoid excessive packaging.</p></div>
+        <div class="three-card"><div class="number">2</div><h3>REUSE</h3><p>Repair, refill, donate or repurpose products that are still safe and useful.</p></div>
+        <div class="three-card"><div class="number">3</div><h3>RECYCLE</h3><p>Separate recyclable materials and send them to the correct collection stream.</p></div>
+    </div>
+</section>
+
+<section class="section" id="calculator">
+    <div class="heading">
+        <p class="tag">CHECK YOUR IMPACT</p>
+        <h2>Household Waste Calculator</h2>
+        <p>Enter your estimated household waste in kilograms per day.</p>
+    </div>
+
+    <div class="calculator-box">
+        <div class="field">
+            <label for="wet">Wet waste (kg/day)</label>
+            <input type="number" id="wet" min="0" max="10000" step="0.1" value="1">
+        </div>
+        <div class="field">
+            <label for="dry">Dry waste (kg/day)</label>
+            <input type="number" id="dry" min="0" max="10000" step="0.1" value="0.5">
+        </div>
+        <div class="field">
+            <label for="special">Special waste (kg/day)</label>
+            <input type="number" id="special" min="0" max="10000" step="0.1" value="0.1">
+        </div>
+        <button class="btn" id="calculate">Calculate Waste</button>
+
+        <div class="result" aria-live="polite">
+            <p>Estimated daily waste</p>
+            <h3 id="daily">1.60 kg</h3>
+            <p id="monthly">Monthly estimate: 48.00 kg</p>
+            <p id="yearly">Yearly estimate: 584.00 kg</p>
+        </div>
+        <p class="note">This calculator uses your entered estimates; it does not measure actual waste.</p>
+    </div>
+</section>
+
+<section class="section quiz" id="quiz">
+    <div class="heading">
+        <p class="tag">TEST YOUR KNOWLEDGE</p>
+        <h2>Waste Segregation Quiz</h2>
+        <p>Answer five questions and check your awareness score.</p>
+    </div>
+
+    <div class="quiz-box">
+        <div class="quiz-top">
+            <span id="questionCount">Question 1 of 5</span>
+            <span id="score">Score: 0</span>
+        </div>
+        <div class="progress"><div id="progressBar"></div></div>
+        <h3 id="question">Which item is usually biodegradable?</h3>
+        <div class="answers" id="answers"></div>
+        <p id="feedback" aria-live="polite"></p>
+        <button class="btn" id="next" disabled>Next Question →</button>
+    </div>
+</section>
+
+<section class="section" id="contact">
+    <div class="heading">
+        <p class="tag">LET'S MAKE A DIFFERENCE</p>
+        <h2>Share Your Feedback</h2>
+        <p>Share your suggestions for improving waste awareness.</p>
+    </div>
+
+    <form class="contact-form" id="contactForm">
+        <div class="field">
+            <label for="name">Your Name</label>
+            <input id="name" name="name" required maxlength="80" placeholder="Enter your name">
+        </div>
+        <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required maxlength="120" placeholder="Enter your email">
+        </div>
+        <div class="field">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option>Waste Segregation</option>
+                <option>Recycling Awareness</option>
+                <option>Website Feedback</option>
+                <option>Other Suggestion</option>
+            </select>
+        </div>
+        <div class="field">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="5" maxlength="1500" required placeholder="Write your message..."></textarea>
+        </div>
+        <button class="btn" type="submit">Submit Feedback</button>
+        <p id="formMessage" aria-live="polite"></p>
+        <p class="note">Demo only: this form does not send or save information to a server.</p>
+    </form>
+</section>
+</main>
+
+<footer>
+    <h2>♻ EcoSort</h2>
+    <p>Building a cleaner future through awareness and responsible waste management.</p>
+    <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#guide">Guide</a>
+        <a href="#awareness">Awareness</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <p>© <span id="year"></span> EcoSort | Waste Segregation Management & Awareness</p>
+</footer>
+
+<button id="topButton" aria-label="Back to top">↑</button>
+
+<script>
+// MOBILE NAVIGATION
+const menuButton = document.getElementById("menuButton");
+const navigation = document.getElementById("navigation");
+
+menuButton.addEventListener("click", function () {
+    navigation.classList.toggle("open");
+});
+
+navigation.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        navigation.classList.remove("open");
+    });
+});
+
+// FOOTER YEAR
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// INTERACTIVE WASTE GUIDE
+const wasteData = {
+    banana: {
+        icon: "🍌",
+        title: "Banana Peel",
+        description: "Place it in the designated organic waste container or compost it using a suitable method.",
+        tip: "Keep organic waste separate from dry recyclables."
+    },
+    paper: {
+        icon: "📄",
+        title: "Paper",
+        description: "Clean and dry paper can usually be placed in the accepted paper recycling stream.",
+        tip: "Keep paper dry and free from food contamination."
+    },
+    plastic: {
+        icon: "🧴",
+        title: "Plastic Bottle",
+        description: "Empty the bottle and use the designated plastic recycling stream if accepted locally.",
+        tip: "Check local recycling rules and avoid placing liquid-filled bottles in recycling."
+    },
+    battery: {
+        icon: "🔋",
+        title: "Battery",
+        description: "Take used batteries to an appropriate battery collection point or authorized recycler.",
+        tip: "Never burn, crush or put batteries in ordinary household waste."
+    },
+    phone: {
+        icon: "📱",
+        title: "Old Mobile Phone",
+        description: "Take old electronic devices to an authorized e-waste collection centre or take-back service.",
+        tip: "Erase your personal data before handing over the device."
+    },
+    glass: {
+        icon: "🍾",
+        title: "Glass Bottle",
+        description: "Use the designated glass collection stream where available.",
+        tip: "Handle broken glass carefully and follow local collection instructions."
+    },
+    medicine: {
+        icon: "💊",
+        title: "Expired Medicine",
+        description: "Ask a pharmacy or authorized collection service about safe medicine disposal.",
+        tip: "Do not flush medicines down drains unless official instructions specifically direct you to."
+    },
+    food: {
+        icon: "🍚",
+        title: "Leftover Food",
+        description: "Prevent food waste where possible. Separate unavoidable suitable food scraps for organic collection.",
+        tip: "Keep food scraps away from batteries, paper and other dry materials."
+    }
+};
+
+document.querySelectorAll(".item-btn").forEach(function (button) {
+    button.addEventListener("click", function () {
+        document.querySelectorAll(".item-btn").forEach(function (item) {
+            item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        const data = wasteData[button.dataset.item];
+
+        document.getElementById("guideEmoji").textContent = data.icon;
+        document.getElementById("guideTitle").textContent = data.title;
+        document.getElementById("guideDescription").textContent = data.description;
+        document.getElementById("guideTip").textContent = data.tip;
+    });
+});
+
+// WASTE CALCULATOR
+document.getElementById("calculate").addEventListener("click", function () {
+    const fields = [
+        document.getElementById("wet"),
+        document.getElementById("dry"),
+        document.getElementById("special")
+    ];
+
+    const values = fields.map(function (field) {
+        return Number(field.value);
+    });
+
+    const invalid = fields.some(function (field, index) {
+        return field.value.trim() === "" ||
+            !Number.isFinite(values[index]) ||
+            values[index] < 0 ||
+            values[index] > 10000;
+    });
+
+    if (invalid) {
+        alert("Enter valid values from 0 to 10,000 kg.");
+        return;
+    }
+
+    const daily = values.reduce(function (sum, value) {
+        return sum + value;
+    }, 0);
+
+    document.getElementById("daily").textContent = daily.toFixed(2) + " kg";
+    document.getElementById("monthly").textContent =
+        "Monthly estimate: " + (daily * 30).toFixed(2) + " kg";
+    document.getElementById("yearly").textContent =
+        "Yearly estimate: " + (daily * 365).toFixed(2) + " kg";
+});
+
+// QUIZ DATA
+const quizQuestions = [
+    {
+        q: "Which item is usually biodegradable?",
+        options: ["Plastic bottle", "Banana peel", "Glass jar", "Metal can"],
+        answer: 1,
+        info: "Banana peels are organic material that can decompose naturally."
+    },
+    {
+        q: "Where should used batteries go?",
+        options: ["Food waste", "Open ground", "Suitable battery collection", "Compost"],
+        answer: 2,
+        info: "Batteries require appropriate collection and safe treatment."
+    },
+    {
+        q: "What does Reduce mean?",
+        options: ["Buy more", "Prevent unnecessary waste", "Burn waste", "Mix waste"],
+        answer: 1,
+        info: "Reduce means preventing waste before it is created."
+    },
+    {
+        q: "How should recyclable paper usually be kept?",
+        options: ["Wet and dirty", "Clean and dry", "Mixed with food", "Burned"],
+        answer: 1,
+        info: "Clean and dry paper is easier to recover for recycling."
+    },
+    {
+        q: "How should old electronic devices be disposed of?",
+        options: ["In a river", "By burning", "In food waste", "Authorized e-waste collection"],
+        answer: 3,
+        info: "Authorized collection supports safer e-waste treatment and recovery."
+    }
+];
+
+let questionIndex = 0;
+let quizScore = 0;
+let hasAnswered = false;
+let quizFinished = false;
+
+const questionElement = document.getElementById("question");
+const answersElement = document.getElementById("answers");
+const feedbackElement = document.getElementById("feedback");
+const nextButton = document.getElementById("next");
+
+function loadQuestion() {
+    hasAnswered = false;
+    quizFinished = false;
+
+    const item = quizQuestions[questionIndex];
+
+    document.getElementById("questionCount").textContent =
+        "Question " + (questionIndex + 1) + " of " + quizQuestions.length;
+
+    document.getElementById("score").textContent = "Score: " + quizScore;
+    document.getElementById("progressBar").style.width =
+        (questionIndex / quizQuestions.length * 100) + "%";
+
+    questionElement.textContent = item.q;
+    feedbackElement.textContent = "";
+    answersElement.replaceChildren();
+
+    item.options.forEach(function (option, index) {
+        const button = document.createElement("button");
+        button.className = "answer-btn";
+        button.type = "button";
+        button.textContent = String.fromCharCode(65 + index) + ". " + option;
+
+        button.addEventListener("click", function () {
+            selectAnswer(index);
+        });
+
+        answersElement.appendChild(button);
+    });
+
+    nextButton.disabled = true;
+    nextButton.textContent =
+        questionIndex === quizQuestions.length - 1 ? "View Results" : "Next Question →";
+}
+
+function selectAnswer(selected) {
+    if (hasAnswered || quizFinished) return;
+
+    hasAnswered = true;
+
+    const item = quizQuestions[questionIndex];
+    const buttons = answersElement.querySelectorAll("button");
+
+    buttons.forEach(function (button, index) {
+        button.disabled = true;
+
+        if (index === item.answer) {
+            button.classList.add("correct");
+        }
+
+        if (index === selected && index !== item.answer) {
+            button.classList.add("wrong");
+        }
+    });
+
+    if (selected === item.answer) {
+        quizScore++;
+        feedbackElement.textContent = "Correct! " + item.info;
+    } else {
+        feedbackElement.textContent = "Not quite. " + item.info;
+    }
+
+    document.getElementById("score").textContent = "Score: " + quizScore;
+    document.getElementById("progressBar").style.width =
+        ((questionIndex + 1) / quizQuestions.length * 100) + "%";
+
+    nextButton.disabled = false;
+}
+
+nextButton.addEventListener("click", function () {
+    if (quizFinished) {
+        questionIndex = 0;
+        quizScore = 0;
+        loadQuestion();
+        return;
+    }
+
+    if (!hasAnswered) return;
+
+    if (questionIndex < quizQuestions.length - 1) {
+        questionIndex++;
+        loadQuestion();
+    } else {
+        quizFinished = true;
+        questionElement.textContent = "🌍 Your Awareness Result";
+        answersElement.replaceChildren();
+
+        const result = document.createElement("p");
+        result.textContent = "You scored " + quizScore + " out of " +
+            quizQuestions.length + ". " +
+            (quizScore === 5
+                ? "Excellent! You are a waste segregation champion!"
+                : quizScore >= 3
+                ? "Great work! Keep learning and practising."
+                : "Keep learning! Review the guide and try again.");
+
+        answersElement.appendChild(result);
+        feedbackElement.textContent = "Every correct habit helps protect our environment.";
+        nextButton.textContent = "Try Again";
+        nextButton.disabled = false;
+        document.getElementById("progressBar").style.width = "100%";
+        document.getElementById("questionCount").textContent = "Quiz Completed";
+    }
+});
+
+// DEMO CONTACT FORM
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (!this.reportValidity()) return;
+
+    document.getElementById("formMessage").textContent =
+        "Thank you! This is a demo form. Your message was not sent or stored.";
+
+    this.reset();
+});
+
+// BACK TO TOP
+const topButton = document.getElementById("topButton");
+
+window.addEventListener("scroll", function () {
+    topButton.classList.toggle("show", window.scrollY > 350);
+});
+
+topButton.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// INITIALIZE QUIZ
+loadQuestion();
+</script>
+
+</body>
+</html>
